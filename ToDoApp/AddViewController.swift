@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 
 class AddViewController: UIViewController {
 
     @IBOutlet weak var notes: UITextField!
     @IBOutlet weak var name: UITextField!
+    var dict = [String:AnyObject]()
     
     var db:Firestore?
     
@@ -22,6 +24,11 @@ class AddViewController: UIViewController {
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func delt(_ sender: UIButton) {
+    }
+    
+    
     @IBAction func add(_ sender: UIButton) {
         
         let Id = db?.collection("tasks").document().documentID
@@ -34,12 +41,14 @@ class AddViewController: UIViewController {
                 print(error.localizedDescription)
                 
             }else{
-                let alert = UIAlertController(title: "Message", message: "Successfully added", preferredStyle: .alert)
+               let alert = UIAlertController(title: "Message", message: "Task added", preferredStyle: .alert)
                 let okay = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    self.navigationController?.popViewController(animated: true)
+             //       self.navigationController?.popViewController(animated: true)
                 })
                 alert.addAction(okay)
                 self.present(alert, animated: true, completion: nil)
+               // var mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainViewController") as! tableViewController
+               // self.present(mainVC, animated: true, completion: nil)
             }
             
         }
