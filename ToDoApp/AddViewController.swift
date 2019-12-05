@@ -47,8 +47,7 @@ class AddViewController: UIViewController {
                 })
                 alert.addAction(okay)
                 self.present(alert, animated: true, completion: nil)
-               // var mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainViewController") as! tableViewController
-               // self.present(mainVC, animated: true, completion: nil)
+             
             }
             
         }
