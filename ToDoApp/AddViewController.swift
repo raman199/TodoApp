@@ -1,10 +1,12 @@
-//
-//  AddViewController.swift
-//  ToDoApp
-//
+
 //  Created by mac on 2019-12-04.
 //  Copyright © 2019 Centennial College. All rights reserved.
 //
+//  File name AddViewController.swift
+//  Author's name: Ramandeep Kaur
+//  app name : ToDoApp
+//  Student ID : 301088232
+//  file description : viewcontroller to add, delete, cancel task
 
 import UIKit
 import Firebase
@@ -24,11 +26,11 @@ class AddViewController: UIViewController {
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
     }
-    
+    // delete task function
     @IBAction func delt(_ sender: UIButton) {
     }
     
-    
+    // add task to firebase database function
     @IBAction func add(_ sender: UIButton) {
         
         let Id = db?.collection("tasks").document().documentID
@@ -57,14 +59,6 @@ class AddViewController: UIViewController {
     
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

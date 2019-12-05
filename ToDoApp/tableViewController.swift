@@ -1,10 +1,13 @@
-//
-//  tableViewController.swift
-//  ToDoApp
+
 //
 //  Created by mac on 2019-12-02.
 //  Copyright © 2019 Centennial College. All rights reserved.
 //
+//  File name tableViewController.swift
+//  Author's name: Ramandeep Kaur
+//  app name : ToDoApp
+//  Student ID : 301088232
+//  file description : Showing Todo Task List Screen
 
 import Foundation
 import UIKit
@@ -14,7 +17,6 @@ class tableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var db:Firestore?
     
     var dictionary = [[String:AnyObject]]()
-    var arr = ["sdada","dasdasd"]
     var indexDict = [String:AnyObject]()
     
     @IBOutlet weak var tablee: UITableView!
@@ -24,6 +26,8 @@ class tableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
        
         retrieveData()
     }
+    
+    // function to retrieve data from firebase 
     func retrieveData(){
         
        db = Firestore.firestore()
@@ -44,6 +48,7 @@ class tableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         return dictionary.count
     }
     
+    // Row height of table cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -58,20 +63,15 @@ class tableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let index = dictionary[indexPath.row]
         print("index",index)
         
-
+        // assigning name of task to table cell
         if let x = cell.viewWithTag(1) as? UILabel{
             x.text = index["name"] as? String
         }
-
-        if let y = cell.viewWithTag(2) as? UILabel{
+        // assigning description of task to table cell
+            if let y = cell.viewWithTag(2) as? UILabel{
             y.text = index["notes"] as? String
         }
-//
-//
-//        cell.textLabel?.text = index["name"] as? String
-//        cell.detailTextLabel?.text = index["notes"] as? String
-//
-//
+
         return cell
         
     }
